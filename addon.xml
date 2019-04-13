@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.amlogic.colorformat" name="Amlogic Color Format" version="0.1" provider-name="roidy">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+    <summary lang="en_GB">Amlogic color format helper</summary>
+    <description lang="en_GB">Fetches Amlogic color format information and assigns them to window properties.</description>
+    <disclaimer lang="en_GB">Use at your own risk</disclaimer>
+    <language></language>
+    <platform>all</platform>
+    <license>Mit</license>
+  </extension>
+</addon>
