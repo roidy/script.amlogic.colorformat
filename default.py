@@ -21,6 +21,7 @@ if (__name__ == "__main__"):
       for line in fp:
         if ":" in line:
           parts = line.split(":")
+          log("Parsing %s as %s" %(parts[0], parts[1]))
           if parts[0].strip() == "VIC": 
             window.setProperty("amlogic.DisplayMode", parts[1].strip().split(" ")[1])
           if parts[0].strip() == "Colour depth": 
