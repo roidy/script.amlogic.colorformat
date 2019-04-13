@@ -16,19 +16,30 @@ if (__name__ == "__main__"):
 
   window = xbmcgui.Window(10000)
 
-  with open("/sys/class/amhdmitx/amhdmitx0/config") as fp:
-    for line in fp:
-      if ":" in line:
-        parts = line.split(":")
-        if parts[0].strip() == "VIC": 
-          window.setProperty("amlogic.DisplayMode", parts[1].strip().split(" ")[1])
-        if parts[0].strip() == "Colour depth": 
-          window.setProperty("amlogic.ColourDepth", parts[1].strip())
-        if parts[0].strip() == "Colourspace": 
-          window.setProperty("amlogic.ColourSpace", parts[1].strip())  
-        if parts[0].strip() == "Colour range": 
-          window.setProperty("amlogic.ColourRange", parts[1].strip())  
-        if parts[0].strip() == "EOTF": 
-          window.setProperty("amlogic.EOTF", parts[1].strip())
-        if parts[0].strip() == "Colourimetry": 
-          window.setProperty("amlogic.Colourimetry", parts[1].strip())                               
+  try:
+    with open("/sys/class/amhdmitx/amhdmitx0/config") as fp:
+      for line in fp:
+        if ":" in line:
+          parts = line.split(":")
+          if parts[0].strip() == "VIC": 
+            window.setProperty("amlogic.DisplayMode", parts[1].strip().split(" ")[1])
+          if parts[0].strip() == "Colour depth": 
+            window.setProperty("amlogic.ColourDepth", parts[1].strip())
+          if parts[0].strip() == "Colourspace": 
+            window.setProperty("amlogic.ColourSpace", parts[1].strip())  
+          if parts[0].strip() == "Colour range": 
+            window.setProperty("amlogic.ColourRange", parts[1].strip())  
+          if parts[0].strip() == "EOTF": 
+            window.setProperty("amlogic.EOTF", parts[1].strip())
+          if parts[0].strip() == "Colourimetry": 
+            window.setProperty("amlogic.Colourimetry", parts[1].strip())
+  except IOError:
+    window.setProperty("amlogic.DisplayMode", "N/A")
+    window.setProperty("amlogic.ColourDepth", "N/A")
+    window.setProperty("amlogic.ColourSpace", "N/A")
+    window.setProperty("amlogic.ColourRange", "N/A")
+    window.setProperty("amlogic.EOTF", "N/A")
+    window.setProperty("amlogic.Colourimetry", "N/A")
+
+
+
