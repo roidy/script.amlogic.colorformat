@@ -3,7 +3,6 @@ import xbmc, xbmcgui, xbmcaddon
 ADDON        = xbmcaddon.Addon()
 ADDONID      = ADDON.getAddonInfo('id')
 ADDONVERSION = ADDON.getAddonInfo('version')
-CWD          = ADDON.getAddonInfo('path').decode("utf-8")
 
 def log(txt):
   if isinstance (txt,str):
@@ -23,24 +22,24 @@ if (__name__ == "__main__"):
           parts = line.split(":")
           log("Parsing %s as %s" %(parts[0], parts[1]))
           if parts[0].strip() == "VIC": 
-            window.setProperty("amlogic.DisplayMode", parts[1].strip().split(" ")[1])
+            window.setProperty("amlogic.hdmitx.displaymode", parts[1].strip().split(" ")[1])
           if parts[0].strip() == "Colour depth": 
-            window.setProperty("amlogic.ColourDepth", parts[1].strip())
+            window.setProperty("amlogic.hdmitx.colourdepth", parts[1].strip())
           if parts[0].strip() == "Colourspace": 
-            window.setProperty("amlogic.ColourSpace", parts[1].strip())  
+            window.setProperty("amlogic.hdmitx.colourspace", parts[1].strip())  
           if parts[0].strip() == "Colour range": 
-            window.setProperty("amlogic.ColourRange", parts[1].strip())  
+            window.setProperty("amlogic.hdmitx.colourrange", parts[1].strip())  
           if parts[0].strip() == "EOTF": 
-            window.setProperty("amlogic.EOTF", parts[1].strip())
+            window.setProperty("amlogic.hdmitx.eotf", parts[1].strip())
           if parts[0].strip() == "Colourimetry": 
-            window.setProperty("amlogic.Colourimetry", parts[1].strip())
+            window.setProperty("amlogic.hdmitx.colourimetry", parts[1].strip())
   except IOError:
-    window.setProperty("amlogic.DisplayMode", "N/A")
-    window.setProperty("amlogic.ColourDepth", "N/A")
-    window.setProperty("amlogic.ColourSpace", "N/A")
-    window.setProperty("amlogic.ColourRange", "N/A")
-    window.setProperty("amlogic.EOTF", "N/A")
-    window.setProperty("amlogic.Colourimetry", "N/A")
+    window.setProperty("amlogic.hdmitx.displaymode", "N/A")
+    window.setProperty("amlogic.hdmitx.colourdepth", "N/A")
+    window.setProperty("amlogic.hdmitx.colourspace", "N/A")
+    window.setProperty("amlogic.hdmitx.colourrange", "N/A")
+    window.setProperty("amlogic.hdmitx.eotf", "N/A")
+    window.setProperty("amlogic.hdmitx.colourimetry", "N/A")
 
 
 
